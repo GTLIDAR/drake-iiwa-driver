@@ -11,8 +11,8 @@ new_local_repository(
     )
 
 (DRAKE_COMMIT, DRAKE_CHECKSUM) = (
-    "e899feec209a6d4a6f7ecc1266cbc933f46ce30e",
-    "d15eda0625b8fed108b33facd3dde048d0ab6f31588e45e881382f1b79eed723",
+    "306baa8e0fd2a600c7d07c99f85ca1b940877603",
+    "f88ae839e5c34e57f8bd420164db8c9bdb093dddad3c8938c4e77717e7665248",
 )
 # Before changing the COMMIT, temporarily uncomment the next line so that Bazel
 # displays the suggested new value for the CHECKSUM.
@@ -38,11 +38,13 @@ load("@drake//tools/workspace/gflags:repository.bzl", "gflags_repository")
 gflags_repository(name = "gflags")
 
 load("@drake//tools/workspace:mirrors.bzl", "DEFAULT_MIRRORS")
+load("@drake//tools/workspace/rules_python:repository.bzl", "rules_python_repository")
+rules_python_repository(name = "rules_python", mirrors=DEFAULT_MIRRORS)
 load("@drake//tools/workspace/lcm:repository.bzl", "lcm_repository")
 lcm_repository(name = "lcm", mirrors = DEFAULT_MIRRORS)
 
 load("@drake//tools/workspace/python:repository.bzl", "python_repository")
 python_repository(name = "python")
 
-load("@drake//tools/workspace/python3:repository.bzl", "python3_repository")
-python3_repository(name = "python3")
+# load("@drake//tools/workspace/python3:repository.bzl", "python3_repository")
+# python3_repository(name = "python3")
